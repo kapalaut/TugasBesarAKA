@@ -32,16 +32,16 @@ def max_rekursif(A, kiri, kanan):
 st.header("1. Pengujian Input")
 
 tingkat = st.radio("Pilih jumlah data (n):", 
-                   ["Sekolah (n=100)", "Kabupaten (n=1.000)", "Provinsi (n=50.000)", "Nasional (n=200.000)"])
+                   ["Sekolah (n=100)", "Kabupaten (n=1.000)", "Provinsi (n=25.000)", "Nasional (n=100.000)"])
 
 if tingkat == "Sekolah (n=100)":
     n = 100
 elif tingkat == "Kabupaten (n=1.000)":
     n = 1000
-elif tingkat == "Provinsi (n=50.000)":
-    n = 50000
+elif tingkat == "Provinsi (n=25.000)":
+    n = 25000
 else:
-    n = 200000
+    n = 100000
 
 data = [random.randint(0, 1000) for _ in range(n)]
 
@@ -127,14 +127,14 @@ def max_iteratif(A):
     with c2:
         st.markdown("**2. Algoritma Rekursif**")
         st.code("""
-def max_dnq(A, low, high):
-    if low == high:
-        return A[low]
+def max_rekrusif(A, kiri, kanan):
+    if kiri == kanan:
+        return A[kiri]
     
-    mid = (low + high) // 2
+    mid = (kiri + kanan) // 2
     
-    max_kiri = max_dnq(A, low, mid)
-    max_kanan = max_dnq(A, mid + 1, high)
+    max_kiri = max_rekursif(A, kiri, mid)
+    max_kanan = max_rekursif(A, mid + 1, kanan)
     
     if max_kiri > max_kanan:
         return max_kiri
